@@ -10,7 +10,8 @@ from flask_jwt_extended import JWTManager
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})  # Prueba con "*" o ajusta el dominio de tu frontend
+
 app.config['JWT_SECRET_KEY'] = 'UTVT'
 jwt = JWTManager(app)
 
